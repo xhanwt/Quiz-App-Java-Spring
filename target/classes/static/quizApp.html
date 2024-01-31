@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quizApp.css">
+    <title>Interactive Quiz</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Quiz</h1>
+
+        <div id="intro-container">
+            <p>Welcome to the Computing Science quiz! Click the button below to start taking the quiz.</p>
+            <button id="start-btn" onclick="startQuiz()">Start Taking Quiz</button>
+        </div>
+
+        <div id="quiz-container" class="hidden">
+            <!-- Questions and options here -->
+        </div>
+
+        <div id="results-container" class="hidden">
+            <h2>Results</h2>
+            <ul id="result-list"></ul>
+            <p id="score">Your Score: <span id="user-score"></span></p>
+            <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+
+        <div id="navigation-container" class="hidden">
+            <button id="prev-btn" onclick="prevQuestion()">Previous</button>
+            <button id="next-btn" onclick="nextQuestion()">Next</button>
+            <button id="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+        </div>
+
+        <div id="progress-container" class="hidden">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+
+    <script src="quizLogic.js"></script>
+</body>
+</html>
