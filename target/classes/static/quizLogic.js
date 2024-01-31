@@ -159,11 +159,11 @@ function restoreUserAnswers() {
 function submitQuiz() {
     const selectedAnswer = document.querySelector('input[name="answer"]:checked');
 
-    if (selectedAnswer) {
+    if (selectedAnswer && currentQuestionIndex + 1 === questions.length) {
         userAnswers[currentQuestionIndex] = selectedAnswer.value;
         showResults();
     } else {
-        alert("Please select an answer before submitting the quiz.");
+        alert("Please answer all questions before submitting the quiz.");
     }
 }
 
