@@ -76,6 +76,9 @@ function startQuiz() {
 function showQuestion() {
     const quizContainer = document.getElementById("quiz-container");
     const progressContainer = document.getElementById("progress-container");
+    const nextButton = document.getElementById("next-btn"); 
+    const prevButton = document.getElementById("prev-btn");
+   
     const question = questions[currentQuestionIndex];
 
     let optionsHtml = "";
@@ -94,6 +97,20 @@ function showQuestion() {
 
     restoreUserAnswers();
     updateProgressBar();
+
+    // Check if it's the last question and hide the "Next" button
+    if (currentQuestionIndex === questions.length - 1) {
+        nextButton.style.display = "none";
+    } else {
+        nextButton.style.display = "inline"; 
+    }
+
+    // Check if it's the first question and hide the "Previous" button
+    if (currentQuestionIndex === 0) {
+        prevButton.style.display = "none";
+    } else {
+        prevButton.style.display = "inline"; 
+    }
 }
 
 // Update progress bar
@@ -168,7 +185,6 @@ function submitQuiz() {
 }
 
 // Function to display quiz results
-// Function to display quiz results
 function showResults() {
     const resultsContainer = document.getElementById("results-container");
     const resultScoreElement = document.getElementById("user-score");
@@ -188,7 +204,7 @@ function showResults() {
         // Apply CSS classes based on correctness
         listItem.classList.add(isCorrect ? "correct-answer" : "incorrect-answer");
 
-        listItem.innerHTML = `<strong>Q${i + 1}:</strong>
+        listItem.innerHTML = `<strong>Q${questions[i].question} </strong>
                               <br> Your Answer: ${userAnswer || 'Not answered'}
                               <br> Correct Answer: ${correctAnswer}`;
         resultList.appendChild(listItem);
