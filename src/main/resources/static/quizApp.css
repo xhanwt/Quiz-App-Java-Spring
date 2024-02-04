@@ -20,6 +20,18 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.bottom {
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.bottom a {
+    padding: 20px;
+}
+
+
 h1 {
     text-align: center;
     color: #333;
