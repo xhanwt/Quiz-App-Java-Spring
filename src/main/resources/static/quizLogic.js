@@ -176,9 +176,17 @@ function restoreUserAnswers() {
 function submitQuiz() {
     const selectedAnswer = document.querySelector('input[name="answer"]:checked');
 
-    if (selectedAnswer && currentQuestionIndex + 1 === questions.length) {
+    // Check if all questions have been answered
+    const allQuestionsAnswered = userAnswers.length === questions.length;
+
+    if (selectedAnswer && allQuestionsAnswered) {
         userAnswers[currentQuestionIndex] = selectedAnswer.value;
         showResults();
+    } else if (!allQuestionsAnswered) {
+        const confirmSubmit = confirm("Not all questions have been answered. Are you sure you want to submit?");
+        if (confirmSubmit) {
+            showResults();
+        }
     } else {
         alert("Please answer all questions before submitting the quiz.");
     }
